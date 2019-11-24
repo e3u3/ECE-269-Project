@@ -13,7 +13,7 @@ def load_image(ROOT):
         xn.append(X)
         xs.append(Y)
     del X, Y
-    XN = np.concatenate(xs)
+    XN = np.concatenate(xn)
     XS = np.concatenate(xs)
     return XN, XS, original_size
 
@@ -26,9 +26,9 @@ def load_part(filepath,num):
         # Read image of neutral
         img_1 = plt.imread(filepath + '/%da.jpg' % (i, ))
         original_size = np.shape(img_1)
-        X.append(np.array(img_1, dtype='float64').flatten())
+        X.append(np.array(img_1).flatten())
         
         # Read image of smiling
         img_2 = plt.imread(filepath + '/%db.jpg' % (i, ))
-        Y.append(np.array(img_2, dtype='float64').flatten())
+        Y.append(np.array(img_2).flatten())
     return X, Y, original_size
